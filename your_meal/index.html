@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your mean - самые вкусные бургеры</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="icon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icon/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="icon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#ffc40d">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="/index.css/index.css">
+    <!-- Чтобы удалить кучу элементов на разных строках можно использовать эту комбинацию:
+    Сначала выделить элемент и нажаться cntr+c, далее ctrl+f чтобы открыть окно поиска, 
+    а далее alt+enter, чтобы разом можно было стирать элементы на разных строках. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&family=Nunito:wght@400;600;800&family=Oswald:wght@200;600;700&display=swap" rel="stylesheet">
+</head>
+                                                        
+<body>
+    <!-- Базированная шапка начинается с header. Также лучше всегда ебашить контейнер внутри.  -->
+    <header class="header">
+        <div class="container header__container">
+            <!-- vieBox добавляет оригинальные пропорции svg. 
+            Так же сделал файл доступным, сказав, что лого у нас будет читаться как img. -->
+            <svg class="header_logo" viewBox="0 0 199 44" role="img" aria-label="Логотип YourMeal">
+                <use href="img.svg/sprite.svg#logo"/>
+            </svg>
+<!-- Сделал контейнер под текстовую часть шапки. Все элементы под тегом div. -->
+            <div class="header__title-container">
+<!-- Во время верстки всегда должен быть заголовк h1. Если его нет, то простодобавить.  -->
+                <h1 class="header_title">
+                    <span class="header_title-text">Только самые</span>
+                    <span class="header_title-text header_title-text_red">сочные бургеры!</span>
+                </h1>
+                <p class="header_appeal">Бесплатная доставка от <b class="header_appeal_font" >599₽</b></p>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <nav class="navigation">
+<!-- Использовал один большой контейнер для всего меню навигации. -->
+            <div class="container navigation_container">
+                <ul class="navigation_list">
+                    <li class="navigation_item">
+                        <!-- Сделал таблицу для элементов навигации. Под каждый li добавил отдельную кнопку. 
+                        Первая кнопка активна по макету, поэтому задаеются отдельные стили. -->
+
+                        <!-- Почему по 3 класса? 1 - ощие стили, 2 - это иконочки, а 3 - это отдельные стили. -->
+                        <button class="navigation_button navigation_button_burger navigation_button_active">Бургеры</button>
+                    </li>
+                    <li class="navigation_item">
+                        <button class="navigation_button navigation_button_snack">Закуски</button>
+                    </li>
+                    <li class="navigation_item">
+                        <button class="navigation_button navigation_button_hot-dog">Хот-доги</button>
+                    </li>
+                    <li class="navigation_item">
+                        <button class="navigation_button navigation_button_kombo">Комбо</button>
+                    </li>
+                    <li class="navigation_item">
+                        <button class="navigation_button navigation_button_shawarma">Шаурма</button>
+                    </li>
+                    <li class="navigation_item">
+                        <button class="navigation_button navigation_button_pizza">Пицца</button>
+                    </li>
+                    <li class="navigation_item">
+                        <button class="navigation_button navigation_button_wok">Вок</button>
+                    </li>
+                    <li class="navigation_item">
+                        <button class="navigation_button navigation_button_dessert">Десерты</button>
+                    </li>
+                    <li class="navigation_item">
+                        <button class="navigation_button navigation_button_sause">Соусы</button>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+<!-- Делаю основную часть сайта, опираясь на главный макет, потому что там есть элементы, которые закрываются в мобайл.  -->
+        <!-- В секции всегда должен быть заголовок h2, чтобы адекватно читаться валидатором. -->
+        <section class="catalog">
+            <div class="container">
+                <!-- Последний класс - это открытие корзины. Будет использоваться в js. -->
+                <div class="catalog__order order order_open">
+                    <!-- Можно div в данном случае, но так же можно и section, потмоу что внутри будет заголовк h. -->
+                    <section class="order_wrapper">
+                        <!-- на изи превратить дивчик в кнопку при помощи tabindex. -->
+                        <div class="order__wrap-title" tabindex="0" role="button">
+                            <h2 class="order__title">Корзина</h2>
+
+                            <span class="order__count">4</span>
+                        </div>
+<!-- Типа дополнительная обертка, чтобы указать доп внешние отступы и т.д дял списка. . -->
+                        <div class="order__wrap-list">
+                            <ul class="order__list">
+
+                            </ul>
+
+                            <div class="order__total">
+                                <p>Итого</p>
+                                <!-- Буквы и цифры в отдельных спанах, чтобы было легче кодить в js. -->
+                                <p>
+                                    <span class="order__total-amount">1279</span>
+                                    <!-- Этот знак рубля или букова отображается в другом шрифте. 
+                                    Надо прописать в css стиль, чтобы он на всех устройствах отображался корретно. -->
+                                    <span class="cyrrency">₽</span>
+                                </p>
+                            </div>
+                            <button class="order__submit">Оформить заказ</button>
+
+                            <div class="order__wrap-appeal">
+                                <p class="order__appeal order__appeal-delivery">Бесплатная доставка</p>
+
+                                <button class="order__close">Свернуть</button>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <div class="catalog__wrapper">
+                    <h2 class="catalog__title">Бургеры</h2>
+
+                    <div class="catalog__wrap-list">
+                        <ul class="catalog__list">
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+
+</body>
+</html>

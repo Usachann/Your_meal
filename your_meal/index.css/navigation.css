@@ -1,0 +1,154 @@
+.navigation {
+    margin-bottom: 30px;
+}
+
+.navigation_container {
+    padding: 0;
+    min-width: 100vw;
+}
+
+.navigation_list {
+    display: flex;
+    /* Сделал так, чтобы падинги слева и справа высчитывались из общей ширины экрана, 
+    поделенной на 2, минус падинги контейнера, заданных в начале.  */
+    padding: 0 calc((100vw / 2) - (var(--container) / 2));
+/* Сделал так, чтобы когда элементы не вмещаются в экран, появлялся скролл. А если всё вмещается - нет появлялся.  */
+    overflow-x: auto;
+    /* Скрыл скролл по вертикали. */
+    overflow-y: hidden;
+    /* Это расстояние между элементами по макету. 
+    column дает возможность устанвоить расстояние только по горизонтали. */
+    column-gap: 8px;
+}
+/* Базирволанные стили для всех кнопок в навигации. */
+.navigation_button {
+    border-radius: 50px;
+    /* Слева 40px, потому что падинги до иконки, + икона 24px и от неё. */
+    padding: 7px 8px 7px 40px;
+    font-size: 12px;
+    line-height: 16px;
+    /* У меня ход-дог переносился на следующую строку, а этот стиль запрещает перенос.  */
+    white-space: nowrap;
+    /* Также все свойства для background надо прописывать тут, потому что они общие. 
+    Теперь все иконочки встанут нормально. 
+    И да, внимательно с размерами, потому что в адаптивной верстке они разные. */
+    background-color: #FFF;
+    background-repeat: no-repeat;
+    background-size: 24px;
+    background-position: 8px center;
+}
+/* Сделать кнопку активной так, чтобы появлялась обводка при нажатии или наведении. */
+.navigation_button:hover,
+.navigation_button:focus-visible {
+    outline: 1px solid #F86310;
+    outline-offset: -1px;
+}
+
+/* Если браузер не поддерживает fosus-visible, то пишем ему, что в таком случае меняем на фокус. */
+@supports not selector(:focus-fisible) {
+    .navigation_button:focus {
+        outline: 1px solid #F86310;
+        outline-offset: -1px;
+    }
+}
+
+.navigation_button_active {
+    pointer-events: none;
+    background-color: #FFAB08;
+}
+
+.navigation_button_active:focus {
+    outline: none;
+}
+
+.navigation_button_burger {
+    /* Если надо загрузить изображение.  */
+    background-image: url(../nav_icon/burger.png);
+}
+
+.navigation_button_snack {
+    background-image: url(../nav_icon/snack.png);
+
+}
+
+.navigation_button_hot-dog {
+    background-image: url(../nav_icon/hot-god.png);
+
+}
+
+.navigation_button_kombo {
+    background-image: url(../nav_icon/kombo.png);
+
+}
+
+.navigation_button_shawarma {
+    background-image: url(../nav_icon/shawarma.png);
+
+}
+
+.navigation_button_pizza {
+    background-image: url(../nav_icon/pizza.png);
+
+}
+
+.navigation_button_wok {
+    background-image: url(../nav_icon/wok.png);
+
+}
+
+.navigation_button_dessert {
+    background-image: url(../nav_icon/dessert.png);
+
+}
+
+.navigation_button_sause {
+    background-image: url(../nav_icon/sause.png);
+
+}
+
+@media (min-width: 420px) {
+    .navigation_list {
+        column-gap: 12px;
+        padding: 0 20px;
+    }
+
+}
+/* Дополнительный медиазпрос для корректировки размеров для непривычных разрешений экрана. Если надо  */
+/* @media (min-width: 480px) {
+   .navigation {
+    --container: 70%;
+   } 
+}
+Но, этот параметр придется потом везде прописывать. 
+Потому что это базовый размекр контейнера для разрешения выше 480px.
+ */
+
+@media (min-width: 768px) {
+    .navigation_list {
+        column-gap: 12px;
+    }
+}
+
+
+@media (min-width: 1024px) {
+    .navigation {
+        margin-bottom: 50px;
+    }
+
+    .navigation_list {
+        column-gap: 24px;
+        padding: 0 calc((100vw / 2) - (var(--container) / 2));
+    }
+
+
+    .navigation_button {
+        padding: 9px, 14px, 9px, 46px;
+        font-size: 16px;
+        line-height: 22px;
+        background-position: 14px center;
+    }
+
+}
+
+
+
