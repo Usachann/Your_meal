@@ -1,0 +1,139 @@
+    /* Нужно сделать так, чтобы при нажатии на кнопку вылезало окошко. 
+     двигает элемент относительно его позиции вниз, вправо, влево или вверх. */
+.order {
+    position: relative;
+}
+
+.order_wrapper {
+    /* ФИксирую в точке независимо от остальных элеметов. Типа в какой-то момент она закрыта, в какой-то открыта. */
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.16);
+    border-radius: 12px;
+    padding: 16px 10px;
+}
+/* Корзина и 4. */
+
+.order__wrap-title {
+    display: flex;
+    /* Раскидать по краям контейнера. */
+    justify-content: space-between;
+    align-items: center;
+    /* Обводку убрать, которая мешает. */
+    outline: none;
+}
+
+ /* Я хзуй знает че тут, но я добавил кнопочную обводку для блока. */
+ .order__wrap-title:after {
+    content: '';
+    position: absolute;
+    /* Ну типа при наведении, и визу я добавлю условие. */
+    outline: 3px solid transparent;
+    inset: 0;
+    border-radius: 12px;
+    /* Недоступный для клика, но видимый. */
+    pointer-events: none;
+}
+/* То есть если навести, то цйвет будет таким: Эт оя сам сделал, и это полная хуета. Не работает. */
+/* .order__wrap-title:focus-visible {
+    /* Сама обводка и её ширина. *//*
+    outline: 3px solid #FFAB08;
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+} */
+/* Правильно: То есть я просто обратился к выбранному классу с псевдоэлемнтом after и скалаз, 
+что при фокус-визибл у неё будет оутлайн опредленного цвета. НО перед этим указал, что у класса с after 
+цвет outline: tranpsarent  */
+.order__wrap-title:focus-visible:after {
+    outline: 3px solid #FFAB08;
+}
+
+/* Типа коментик справа, если захочется оптмизировать код. Потому что написанные св-ва могут перегружать браузер. */
+.order_open .order__wrap-title {
+    margin-bottom: 8px; /* todo optimaze */
+}
+
+.order__title {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 100%;
+}
+
+.order__count {
+    /* Можно добавить для пущей уверенности, но можно и без. */
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    font-size: 10px;
+    line-height: 14px;
+    text-align: center;
+    width: 32px;
+    height: 16px;
+    background-color: #F2F2F3;
+    border-radius: 6px;
+} 
+
+.order__wrap-list {
+    display: none;
+}
+
+/* Типа добавил доп класс-модификатор .order_open. Если он появится в будущем, то диспалй поменяется на блок. */
+.order_open .order__wrap-list {
+    display: block;
+}
+
+.order__list {
+    margin-bottom: 13px;
+}
+
+.order__total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    line-height: 130%;
+    margin-bottom: 19px;
+}
+
+.order__submit {
+    /* То есть, я задал отступы, а потом просто растянул ширину на 100%. Правый и левый отступ не важен, 
+    потмоу что они будут высчитываться самостоятельно. */
+    padding: 9px;
+    width: 100%;
+    /* Чтобы текст всегда был на одной линии. */
+    white-space: nowrap;
+    background: #FF7020;
+    border-radius: 8px;
+    font-size: 12px;
+    line-height: 100%;
+    color: #FFFFFF;
+    margin-bottom: 8px;
+}
+
+.order__wrap-appeal{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.order__appeal {
+    font-size: 10px;
+    /* В макете у меня иконка не помещалась, поэтому задал lh как у размера иконки и все четко встало. */
+    line-height: 24px;
+    padding-left: 32px;
+    background: url(../nav_icon/delivery.png) left no-repeat;
+    background-size: 24px;
+
+    
+}
+
+.order__close {
+    font-size: 10px;
+    line-height: 14px;
+    color: #B1B1B1;
+}
