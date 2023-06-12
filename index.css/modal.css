@@ -1,0 +1,38 @@
+.modal {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    cursor: pointer;
+    /* ЧТОБЫ ОКНО СКРОЛИЛОСЬ, ЕССЛИ НЕ ПОМЕСТИТСЯ ПО ВЕРТИКАЛИ. */
+    overflow-y: auto;
+    display: none;
+}
+
+.modal__open {
+    display: flex;
+}
+
+.modal__main {
+    position: relative;
+    cursor: default;
+    /* Родитель под flex, поэтмоу окно по идее должно стать по середине с mardin: auto. */
+    margin: auto;
+}
+
+.modal__close {
+    /* Указываем цвет, потому что иконка currentColor */
+    /* А также выдаю абсолютную позицию, чтобы расположить кнопку сверху. */
+    position: absolute;
+    color: #B1B1B1;
+    cursor: pointer;
+    top: 10px;
+    right: 10px;
+    outline: 1px solid transparent;
+    outline-offset: 3px;
+}
+/* Чтобы крестик получал обводку, если на него навестись при помощи tab. */
+.modal__close:focus-visible {
+    color: #FF7020;
+    outline-color: #FF7020;
+    border-radius: 3px;
+}

@@ -1,0 +1,154 @@
+.footer {
+    padding: 24px 0;
+    background-color: #FFFFFF;
+}
+/*  В дефолте стоит display: block
+.footer__content{
+    display: flex;
+    flex-direction: column;
+} */
+
+.footer__logo{
+    width: 196px;
+    color: #FF7020;
+    margin-bottom: 24px;
+}
+
+.footer__adress {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.footer__link-phone {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    line-height: 24px;
+}
+
+
+.footer__title {
+    margin-bottom: 8px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 100%;
+}
+
+.footer__list {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 34px;
+}
+
+.footer__link-sn {
+    color: #FF7020;
+}
+
+.footer__development {
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+    line-height: 16px;
+    gap: 4px;
+}
+
+@media (min-width: 480px) {
+    .footer__logo {
+        margin-bottom: 36px;
+    }
+
+    .footer__adress {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .footer__contact {
+        flex-grow: 1;
+    }
+}
+
+
+@media (min-width: 768px) {
+    .footer {
+        padding: 40px 0;
+        background-color: #FFFFFF;
+    }
+
+
+    .footer__list {
+        margin-bottom: 52px;
+    }
+    
+}
+
+@media (min-width: 1024px) {
+    .footer {
+        padding: 52px 0;
+    }
+
+    .footer__content {
+        display: grid;
+        /* Элементам можно теперь указывать названия через grid:area, чтобы они распологались в таком порядке: */
+        grid-template-areas: 
+         'logo adress'
+         'development .';
+         gap: 35px;
+    }
+    
+    .footer__logo {
+        width: 300px;
+        margin-bottom: 0px;
+        grid-area: logo;
+    }
+
+    .footer__adress {
+       margin-bottom: 0;
+       grid-area: adress;
+       gap: 50px;
+       justify-content: flex-end;
+    }
+
+    .footer__contact {
+        flex-grow: unset;
+    }
+
+    .footer__list {
+        margin-bottom: 0px;
+    }
+    
+
+    .footer__title {
+        margin-bottom: 22px;
+        font-size: 24px;
+    }
+
+    .footer__title_sn {
+        margin-bottom: 24px;
+    }
+
+    .footer__link-phone {
+        font-size: 16px;
+    }
+
+    .footer__development {
+        grid-area: development;
+    }
+
+}
+
+@media (min-width: 1024px) {
+    /* Сделал так, чтобы элеметы занимали равные половинки. */
+    .footer__content {
+      grid-template-columns: 1fr 1fr;
+    }
+    
+    .footer__adress {
+        justify-content: flex-start;
+     }
+
+     .footer__contact {
+        flex-grow: 1;
+     }
+}
